@@ -1,5 +1,5 @@
 const PREFIX='routine-shell-';
-const CACHE=PREFIX+'020-stable';
+const CACHE=PREFIX+'020-stable-flex-hf2';
 const FILES=['./index.html','./activation.js?v=020-stable','./script.enc.json?v=020-stable','./pwa.js?v=020-stable','./manifest.webmanifest?v=020-stable','./icon-192-hf1.png','./icon-512-hf1.png','./apple-touch-icon-hf1.png','./manifest.webmanifest','./icon-192.png','./icon-512.png','./apple-touch-icon.png'];
 const urls=FILES.map(p=>new URL(p,self.registration.scope).href);
 self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await c.addAll(urls.map(u=>new Request(u,{cache:'reload'})));})()));
