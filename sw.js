@@ -1,6 +1,6 @@
 const PREFIX='routine-shell-';
-const CACHE=PREFIX+'020-dev1-hf3';
-const FILES=['./index.html','./activation.js?v=020-dev1-hf3','./script.enc.json?v=020-dev1-hf3','./pwa.js?v=020-dev1-hf3','./manifest.webmanifest?v=020-dev1-hf3','./icon-192-hf1.png','./icon-512-hf1.png','./apple-touch-icon-hf1.png','./manifest.webmanifest','./icon-192.png','./icon-512.png','./apple-touch-icon.png'];
+const CACHE=PREFIX+'020-dev2';
+const FILES=['./index.html','./activation.js?v=020-dev2','./script.enc.json?v=020-dev2','./pwa.js?v=020-dev2','./manifest.webmanifest?v=020-dev2','./icon-192-hf1.png','./icon-512-hf1.png','./apple-touch-icon-hf1.png','./manifest.webmanifest','./icon-192.png','./icon-512.png','./apple-touch-icon.png'];
 const urls=FILES.map(p=>new URL(p,self.registration.scope).href);
 self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await c.addAll(urls.map(u=>new Request(u,{cache:'reload'})));})()));
 self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const k of await caches.keys())if(k.startsWith(PREFIX)&&k!==CACHE)await caches.delete(k);await self.clients.claim();})()));
